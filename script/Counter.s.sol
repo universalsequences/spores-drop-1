@@ -16,8 +16,20 @@ contract CounterScript is Script {
         ZenMetadataRenderer renderer = new ZenMetadataRenderer();
         ZenDropCreator creator = new ZenDropCreator(ZORA_DROPS_CREATOR);
         
+        //address drop = address(0x2e1BB408a2D9c5adf40079F20c8Ea94704e432c0);
         address drop = creator.newDrop(address(renderer));
-        IERC721Drop(drop).purchase(100);
+        //renderer.updateSeed(drop, 1000);
+        //renderer.updateSeed(drop, 1234);
+        IERC721Drop(drop).purchase(40);
+        //IERC721Drop(drop).purchase(95);
+        renderer.updateSeed(drop, 3000);
+        IERC721Drop(drop).purchase(80);
+        // renderer.updateSeed(drop, 4000);
+        /*
+        IERC721Drop(drop).purchase(50);
+        renderer.updateSeed(drop, 5000);
+        IERC721Drop(drop).purchase(90);
+        */
         
         vm.stopBroadcast();
 

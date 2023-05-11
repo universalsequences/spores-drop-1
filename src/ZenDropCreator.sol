@@ -42,22 +42,21 @@ contract ZenDropCreator {
         // need to register shit with ZporeMinter at "defaultAdmin"
 
         bytes memory metadataInitializer = abi.encode(
-            "fuck",
             string(abi.encodePacked(
                 "data:application/json;base64,",
                 Base64.encode(
                     bytes(
                         string(
                             abi.encodePacked(
-                                             '{"description": " Gives you access", "name": "Spores 1", "image": "https://zequencer.mypinata.cloud/ipfs/QmcLbLqjVxTUXFVbrVeXJPKKdXGbdr1TNHEK3ahKHzzSoF/1"}')))))));
+                                             '{"description": "Gives you access to https://spores.vision", "name": "Spore 1", "image": "https://zequencer.mypinata.cloud/ipfs/QmcLbLqjVxTUXFVbrVeXJPKKdXGbdr1TNHEK3ahKHzzSoF/1"}')))))));
 
         // defaultAdmin will be the "ZporeMinter"
         address newDropAddress = creator.setupDropsContract(
-          "Spores test",
+          "Spore 1",
           "SPORE",
           address(this),
           1000000000000, // unlimited?
-          500, // bps is this used
+          500, // BPS (what should i do for 8%?)
           payable(address(this)),
           salesConfig,
           IMetadataRenderer(metadataRenderer),
